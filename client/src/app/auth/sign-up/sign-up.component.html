@@ -1,0 +1,79 @@
+<body>
+  <div class="image">
+    <img src="../../../assets/images/logoDE.jpg" alt="Logo" srcset="">
+  </div>
+  <form [formGroup]="registerFormGroup" id="register-form" (ngSubmit)="onSubmit()">
+    <div class="form">
+      <img class="loginLog" src="../../../assets/images/LoginLog.png" alt="Logo" srcset="">
+      <div class="nav">
+        <h1> Crèer compte</h1>
+        <p>Ou <a (click)="onClick()"> Se Connecter</a></p>
+      </div>
+      <div *ngIf="error" class="validation-text" class="text-danger">{{error}}</div>
+
+      <input formControlName="firstname" type="text" placeholder="Firstname">
+      <div *ngIf="f['firstname'].errors && f['firstname'].touched" class="validation-text">
+        <div *ngIf="f['firstname'].errors['required']" class="text-danger">
+          Firstname is required
+        </div>
+      </div>
+
+      <input formControlName="lastname" type="text" placeholder="Lastname">
+      <div *ngIf="f['lastname'].errors && f['lastname'].touched" class="validation-text">
+        <div *ngIf="f['lastname'].errors['required']" class="text-danger">
+          Lastname is required
+        </div>
+      </div>
+      <input formControlName="phone" type="text" placeholder="phone">
+      <div *ngIf="f['phone'].errors && f['phone'].touched" class="validation-text">
+        <div *ngIf="f['phone'].errors['required']" class="text-danger">
+          Phone is required
+        </div>
+      </div>
+      <input formControlName="address" type="text" placeholder="address">
+      <div *ngIf="f['address'].errors && f['address'].touched" class="validation-text">
+        <div *ngIf="f['address'].errors['required']" class="text-danger">
+          Address is required
+        </div>
+      </div>
+      <input formControlName="email" type="text" placeholder="Email">
+      <div *ngIf="f['email'].errors && f['email'].touched" class="validation-text">
+        <div *ngIf="f['email'].errors?.['required']" class="text-danger">
+          Email is required
+        </div>
+        <div *ngIf="f['email'].errors?.['pattern']" class="text-danger">
+          Provided string is not an email
+        </div>
+      </div>
+      <div class="ddd">
+        <input formControlName="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Password" class="form-control">
+          <i [ngClass]="passwordVisible ? 'bi bi-eye-slash' : 'bi bi-eye'"(click)="togglePasswordVisibility()"></i>
+      </div>
+      <div *ngIf="f['password'].errors && f['password'].touched" class="validation-text">
+        <div *ngIf="f['password'].errors['required']" class="text-danger">
+          Password is required
+        </div>
+        <div *ngIf="f['password'].errors['minlength']" class="text-danger">
+          Password must be at least 6 characters long
+        </div>
+      </div>
+
+      <div class="ddd">
+        <input formControlName="passwordConfirm" [type]="passwordConfirmVisible ? 'text' : 'password'" placeholder="Confirm Password" class="form-control">
+          <i [ngClass]="passwordConfirmVisible ? 'bi bi-eye-slash' : 'bi bi-eye'" (click)="togglePasswordConfirmVisibility()" ></i>
+      </div>
+      <div *ngIf="f['passwordConfirm'].errors && f['passwordConfirm'].touched" class="validation-text">
+        <div *ngIf="f['passwordConfirm'].errors['required']" class="text-danger">
+          Password confirmation is required
+        </div>
+        <div *ngIf="f['passwordConfirm'].errors['minlength']" class="text-danger">
+          Password confirmation must be at least 6 characters long
+        </div>
+        <div *ngIf="registerFormGroup.errors?.['mismatch']" class="text-danger">
+          Passwords do not match
+        </div>
+      </div>
+      <button type="submit">Crèer Compte</button>
+    </div>
+  </form>
+</body>

@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <div class="accordion mb-3" id="accordionExample">
+    <div *ngFor="let vehicle of vehicles; let i = index" class="accordion-item">
+      <h2 class="accordion-header" id="heading{{ i }}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"(click)="toggleAccordion(i)" 
+          [attr.data-bs-target]="expandedIndex === i" aria-expanded="false"
+          [attr.aria-controls]="'collapse' + i">
+          {{ vehicle.immatriculation }} - {{ vehicle.marque }} {{ vehicle.modele }}
+        </button>
+      </h2>
+      <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="expandedIndex === i"
+        [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-card-text me-3"></i>
+                    <div>
+                      <div class="widget-heading">Immatriculation:</div>
+                      <div>{{ vehicle.immatriculation }}</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-car-front-fill me-3"></i>
+                    <div>
+                      <div class="widget-heading">Marque:</div>
+                      <div>{{ vehicle.marque }}</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-gear-fill me-3"></i>
+                    <div>
+                      <div class="widget-heading">Modèle:</div>
+                      <div>{{ vehicle.modele }}</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <button class="mr-2 btn btn-outline-danger" (click)="deleteCamionBId(vehicle.id)">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person-fill me-3"></i>
+                    <div>
+                      <div class="widget-heading">Nombre de Places:</div>
+                      <div>{{ vehicle.nbPlaces }}</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-file-image me-3"></i>
+                    <div>
+                      <div class="widget-heading">Photo:</div>
+                      <img *ngIf="vehicle.photo != null" [src]="vehicle.photo" alt="Vehicle photo" class="img-thumbnail mt-2" style="max-height: 150px;">
+                      <img *ngIf="vehicle.photo == null" src="../../../assets/images/logoDE.jpg" alt="Vehicle photo" class="img-thumbnail mt-2" style="max-height: 150px;">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<body>
+  <div class="image">
+    <img src="../../../assets/images/logoDE.jpg" alt="Logo" srcset="">
+  </div>
+  <form [formGroup]="loginForm" id="login-form" (ngSubmit)="onSubmit()">
+    <div class="form">
+      <img class="loginLog" src="../../../assets/images/LoginLog.png" alt="Logo" srcset="">
+      <div class="nav">
+        <h1>Se Connecter</h1>
+        <p>Ou <a (click)="onClick()"> Crèer compte</a></p>
+      </div>
+      <div *ngIf="error" class="validation-text">{{error}}</div>
+
+      <input formControlName="email" type="text" placeholder="email">
+      <div *ngIf="f['email'].errors && f['email'].touched" class="validation-text">
+        <div *ngIf="f['email'].errors?.['required']" class="text-danger">
+          Email is required
+        </div>
+        <div *ngIf="f['email'].errors?.['pattern']" class="text-danger">
+          Provided string is not an email
+        </div>
+      </div>
+
+      <div class="ddd">
+        <input formControlName="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Password" class="form-control">
+          <i [ngClass]="passwordVisible ? 'bi bi-eye-slash' : 'bi bi-eye'"(click)="togglePasswordVisibility()"></i>
+      </div>
+      <div *ngIf="f['password'].errors && f['password'].touched" class="validation-text">
+        <div *ngIf="f['password'].errors?.['required']" class="text-danger">
+          Password is required
+        </div>
+        <div *ngIf="f['password'].errors?.['minlength']" class="text-danger">
+          Password must be at least 6 characters long
+        </div>
+      </div>
+
+      <button type="submit">Se Connecter</button>
+    </div>
+  </form>
+</body>

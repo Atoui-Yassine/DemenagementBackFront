@@ -1,0 +1,67 @@
+<div class="container">
+    <h4 class="mt-4">Véhicule</h4>
+    <form class="needs-validation" novalidate [formGroup]="vehiculeForm">
+      <div class="mb-3 row">
+        <label for="immat" class="col-sm-3 col-form-label">Immatriculation</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="immat" name="immat" formControlName="immatriculation" placeholder="XX-123-XX" required>
+          <div class="invalid-feedback" *ngIf="immatriculation?.errors && (immatriculation?.dirty || immatriculation?.touched)">
+            L'immatriculation est obligatoire (format : <b>XX-123-XX</b>).
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="marque" class="col-sm-3 col-form-label">Marque</label>
+        <div class="col-sm-9">
+          <select class="form-select" id="marque" name="marque" formControlName="marque" required>
+            <option *ngFor="let marque of marques" [value]="marque">{{ marque }}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="marque?.errors && (marque?.dirty || marque?.touched)">
+            La marque est obligatoire.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="modele" class="col-sm-3 col-form-label">Modèle</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="modele" name="modele" formControlName="modele" required>
+          <div class="invalid-feedback" *ngIf="modele?.errors && (modele?.dirty || modele?.touched)">
+            Le modèle est obligatoire.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="categorie" class="col-sm-3 col-form-label">Catégorie</label>
+        <div class="col-sm-9">
+          <select class="form-select" id="categorie" name="categorie" formControlName="categorie" required>
+            <option *ngFor="let cat of categoriesObs | async" [ngValue]="cat.libelle">{{cat.libelle}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="categorie?.errors && (categorie?.dirty || categorie?.touched)">
+            La catégorie est obligatoire.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="nbPlaces" class="col-sm-3 col-form-label">Nombre de places</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="nbPlaces" name="nbPlaces" formControlName="nbPlaces" min="1" max="20" required>
+          <div class="invalid-feedback" *ngIf="nbPlaces?.errors && (nbPlaces?.dirty || nbPlaces?.touched)">
+            Le nombre de places doit être compris entre 1 et 20.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="photo" class="col-sm-3 col-form-label">Photo</label>
+        <div class="col-sm-9">
+          <input type="file" class="form-control" id="photo" name="photo" (change)="onFileChange($event)" required>
+          <div class="invalid-feedback" *ngIf="photo?.errors && (photo?.dirty || photo?.touched)">
+            Une URL d'image est obligatoire.
+          </div>
+          <img *ngIf="photoPreview" [src]="photoPreview" alt="Aperçu de la photo" class="img-thumbnail mt-2">
+        </div>
+      </div>
+      <button type="button" class="btn btn-danger me-2" (click)="cancel()">Annuler</button>
+      <button type="button" class="btn btn-primary" [disabled]="vehiculeForm.invalid" (click)="creerVehicule()">Ajouter</button>
+    </form>
+  </div>
+  

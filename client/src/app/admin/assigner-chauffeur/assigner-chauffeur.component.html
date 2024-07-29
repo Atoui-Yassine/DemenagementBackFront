@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+      <div class="app-page-title" style="margin: 0%; width: 100%;">
+        <div class="page-title-wrapper">
+          <div class="page-title-heading">
+            <div class="page-title-icon">
+              <i class="bi bi-person-check-fill icon-gradient bg-premium-dark"></i>
+            </div>
+            <div>Assigner un chauffeur
+              <div class="page-title-subheading">Sélectionnez un chauffeur pour cette demande.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  <div class="main-card mb-3 card m-3">
+    <div class="card-body">
+      <form [formGroup]="assignForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="driverSelect" class="form-label">Sélectionner un chauffeur</label>
+          <select id="driverSelect" class="form-select" formControlName="driverId" required>
+            <option *ngFor="let driver of drivers" [value]="driver.id">{{driver.email}} </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="driverSelect" class="form-label">Sélectionner un Camion</label>
+          <select id="driverSelect" class="form-select" formControlName="camionId" required>
+            <option *ngFor="let camion of camions" [value]="camion.id">{{camion.marque}} {{camion.modele}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea id="description" class="form-control" formControlName="description" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="assignForm.invalid">Assigner</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,52 @@
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.icon-wrapper-bg {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: rgba(50, 120, 226, 0.308);
+}
+
+.icon-wrapper i {
+    z-index: 2;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.widget-chart {
+    text-align: center;
+    box-shadow: 1px 3px 5px 2px rgba(108, 117, 125, 0.5);
+
+}
+
+.widget-numbers {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.widget-subheading {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+.acceuil{
+    justify-content: center;
+   margin: 50px 10px ;
+
+}
+.accCol{
+    margin-bottom: 30px;
+}

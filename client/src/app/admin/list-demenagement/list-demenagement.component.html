@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+      <div class="app-page-title" style="margin: 0%; width: 100%;">
+        <div class="page-title-wrapper">
+          <div class="page-title-heading">
+            <div class="page-title-icon">
+              <i class="bi bi-truck icon-gradient bg-premium-dark"></i>
+            </div>
+            <div>Liste des déménagements
+              <div class="page-title-subheading">Consulter la liste des déménagements.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  <div class="main-card mb-3 card">
+    <div class="card-body">
+      <br>
+      <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Adresse de Départ</th>
+            <th>Adresse de Fin</th>
+            <th>Client</th>
+            <th>Email</th>
+            <th>Catégorie de Meubles</th>
+            <th>Statut</th>
+            <th>Véficule</th>
+            <th>Chauffeur</th>
+           
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.date}}</td>
+            <td>{{reservation.startAddress}}</td>
+            <td>{{reservation.endAddress}}</td>
+            <td>{{reservation.client.firstname}} {{reservation.client.lastname}}</td>
+            <td>{{reservation.client.email}}</td>
+            <td>{{reservation.furnitureCategory}}</td>
+            <td>{{reservation.status}}</td>
+            <td>
+              <span *ngIf="(reservation.camion != null)">{{reservation.camion.modele}} </span>
+              <span *ngIf="(reservation.camion == null)" class="text"> ------ </span>
+            </td>
+            <td>
+              <span *ngIf="(reservation.chauffeur != null)">{{reservation.chauffeur!.lastname}} {{reservation.chauffeur!.firstname}}</span>
+              <button *ngIf="(reservation.status === 'PENDING' ) && (reservation.chauffeur == null)" class="btn btn-outline-primary" (click)="assignDriver(reservation.id)">
+                Assigner un chauffeur
+              </button>
+            </td>
+            
+            <td>
+              <button class="mr-2 btn btn-outline-danger" (click)="deleteReservation(reservation.id)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

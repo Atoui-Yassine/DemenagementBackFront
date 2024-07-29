@@ -1,0 +1,36 @@
+<nav class="navbar">
+    <div class="navbar-left" >
+      <img src="../../../assets/images/logoDE.jpg" (click)="naviget()" alt="Logo" class="logo">
+    </div>
+    <div class="navbar-right">
+      <div class="nav-item"  *ngIf="isLoggedIn">
+        <i class="bi bi-person-circle" (click)="toggleProfileMenu()"></i>
+        <div class="dropdown-menu"  *ngIf="isProfileMenuOpen">
+          <a class="dropdown-item" [routerLink]="profileLink" >
+            <i class="bi bi-person-circle"></i>
+            Profile</a>
+          <a class="dropdown-item" (click)="logout()">
+            <i class="bi bi-box-arrow-left"></i>
+            Logout</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <i class="bi bi-bell" (click)="toggleNotificationsMenu()"></i>
+        <div class="dropdown-menu" *ngIf="isNotificationsMenuOpen">
+          <a class="dropdown-item" *ngFor="let notification of notifications">
+            {{ notification.message }}
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" *ngIf="!isLoggedIn">
+        <button class="login-button" (click)="login()" >
+          
+          Login</button>
+      </div>
+      <div class="nav-item" *ngIf="isLoggedIn">
+        <button class="login-button " (click)="logout()" >
+          LogOut</button>
+      </div>
+    </div>
+  </nav>
+  

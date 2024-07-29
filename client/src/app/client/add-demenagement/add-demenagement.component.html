@@ -1,0 +1,32 @@
+<!-- reserve-demenagement.component.html -->
+<div class="container mt-4">
+    <h2>Réserver un Déménagement</h2>
+    <form [formGroup]="reserveForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" id="date" class="form-control" formControlName="date">
+      </div>
+      <div class="mb-3">
+        <label for="startAddress" class="form-label">Adresse de Départ</label>
+        <input type="text" id="startAddress" class="form-control" formControlName="startAddress" placeholder="Adresse de Départ">
+      </div>
+      <div class="mb-3">
+        <label for="endAddress" class="form-label">Adresse d'Arrivée</label>
+        <input type="text" id="endAddress" class="form-control" formControlName="endAddress" placeholder="Adresse d'Arrivée">
+      </div>
+      <div class="mb-3">
+        <label for="typeDemenagement" class="form-label">Type de Déménagement</label>
+        <select id="typeDemenagement" class="form-control" formControlName="furnitureCategory">
+          <option value="">Sélectionnez un type</option>
+          <option value="bureautique">Bureautique</option>
+          <option value="maison">Maison</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" formControlName="description" placeholder="Description"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="reserveForm.invalid">Réserver</button>
+    </form>
+  </div>
+  

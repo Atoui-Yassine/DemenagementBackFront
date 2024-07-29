@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+      <div class="app-page-title" style="margin: 0%; width: 100%;">
+        <div class="page-title-wrapper">
+          <div class="page-title-heading">
+            <div class="page-title-icon">
+              <i class="bi bi-telephone-fill icon-gradient bg-premium-dark"></i>
+            </div>
+            <div>Liste des clients
+              <div class="page-title-subheading">Consulter la liste des clients.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  <div class="main-card mb-3 card">
+    <div class="card-body">
+      <div>
+      </div>
+      <br>
+      <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 5%;">Photo</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Nationalité</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td class="td">
+              <img  *ngIf="client.avatar != null" [src]="client.avatar" width="50px" height="50px" alt="image du client">
+              <img *ngIf="client.avatar == null" src="../../../assets/images/client.png" width="50px" height="50px" alt="image du client">
+
+            </td>
+            <td class="tdd">{{client.firstname}}</td>
+            <td class="tdd">{{client.lastname}}</td>
+            <td class="tdd">{{client.nationality}}</td>
+            <td class="tdd">{{client.phone}}</td>
+            <td class="tdd">{{client.email}}</td>
+            <td class="tdd">{{client.address}}</td>
+            <td>
+             
+              <button class="mr-2 btn btn-outline-danger" (click)="deleteClient(client.id)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,272 @@
+<mat-horizontal-stepper linear #stepper [selectedIndex]="currentStepper" class="cont">
+  <mat-step [stepControl]="step1Form" [editable]="isEditable">
+    <form class="example-form" [formGroup]="step1Form">
+      <ng-template matStepLabel>Informations Generale</ng-template>
+      
+      <div class="row">
+        <div class="col-md-10">
+          <input type="file" id="userFile" (change)="onSelectFileAvatar($event)" #fileInputAvatar style="display: none">
+          <mat-form-field class="example-full-width">
+            <mat-label>Photo du chauffeur</mat-label>
+            <input matInput formControlName="avatar" placeholder="photo du chauffeur" readonly>
+            <mat-error *ngIf="step1Form.get('avatar')?.hasError('required')">Photo is required</mat-error>
+          </mat-form-field>
+          <button type="button" class="btn btn-primary" mat-button (click)="selectFileAvatar()">Choisir la photo</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nationalite</mat-label>
+            <mat-select formControlName="nationality">
+              <mat-option *ngFor="let nationalitie of nationalities?.data" [value]="nationalitie.name" [title]="nationalitie.description">
+                {{ nationalitie.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="step1Form.get('nationality')?.hasError('required')">Nationality is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom</mat-label>
+            <input matInput placeholder=" First name" formControlName="firstname">
+            <mat-error *ngIf="step1Form.get('firstname')?.hasError('required')">Nom is required</mat-error>
+            <mat-error *ngIf="step1Form.get('firstname')?.hasError('minlength')">Nom must be at least 2 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Prenom</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastname">
+            <mat-error *ngIf="step1Form.get('lastname')?.hasError('required')">Prenom is required</mat-error>
+            <mat-error *ngIf="step1Form.get('lastname')?.hasError('minlength')">Prenom must be at least 2 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Carte Vitale</mat-label>
+            <input matInput placeholder="Carte Vitale" formControlName="vitale">
+            <mat-error *ngIf="step1Form.get('vitale')?.hasError('required')">Carte Vitale is required</mat-error>
+            <mat-error *ngIf="step1Form.get('vitale')?.hasError('minlength')">Carte Vitale must be at least 2 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>RIB</mat-label>
+            <input matInput placeholder="RIB" formControlName="rib">
+            <mat-error *ngIf="step1Form.get('rib')?.hasError('required')">RIB is required</mat-error>
+            <mat-error *ngIf="step1Form.get('rib')?.hasError('minlength')">RIB must be at least 2 characters</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Date de Naissance</mat-label>
+            <input matInput type="date" formControlName="date_naissance">
+            <mat-error *ngIf="step1Form.get('date_naissance')?.hasError('required')">Date de Naissance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Lieu de Naissance</mat-label>
+            <input matInput placeholder="Lieu de Naissance" formControlName="lieu_naissance">
+            <mat-error *ngIf="step1Form.get('lieu_naissance')?.hasError('required')">Lieu de Naissance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="step1Form.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="step1Form.get('email')?.hasError('email')">Invalid email address</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Adresse</mat-label>
+            <input matInput placeholder="Adresse" formControlName="adresse">
+            <mat-error *ngIf="step1Form.get('adresse')?.hasError('required')">Adresse is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1&nbsp;</span>
+            <input type="tel" formControlName="telephone1" matInput placeholder="555-555-1234">
+            <mat-error *ngIf="step1Form.get('telephone1')?.hasError('required')">Telephone is required</mat-error>
+            <mat-error *ngIf="step1Form.get('telephone1')?.hasError('pattern')">Invalid telephone number</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1&nbsp;</span>
+            <input type="tel" formControlName="telephone2" matInput placeholder="555-555-1234">
+            <mat-error *ngIf="step1Form.get('telephone2')?.hasError('pattern')">Invalid telephone number</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-success" (click)="addStep1()" mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="step2Form">
+    <form class="example-form" [formGroup]="step2Form">
+      <ng-template matStepLabel>Information sur le Permis</ng-template>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de Permis</mat-label>
+            <input matInput formControlName="num_permis">
+            <mat-error *ngIf="step2Form.get('num_permis')?.hasError('required')">Numero de Permis is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Date de Delivrance</mat-label>
+            <input matInput type="date" formControlName="date_delivrance">
+            <mat-error *ngIf="step2Form.get('date_delivrance')?.hasError('required')">Date de Delivrance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Lieu de Delivrance</mat-label>
+            <input matInput formControlName="lieu_delivrance">
+            <mat-error *ngIf="step2Form.get('lieu_delivrance')?.hasError('required')">Lieu de Delivrance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-success" (click)="addStep2()" mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="step3Form">
+    <form class="example-form" [formGroup]="step3Form">
+      <ng-template matStepLabel>Information Piece identite</ng-template>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Piece Identite</mat-label>
+            <input matInput formControlName="piece_identite">
+            <mat-error *ngIf="step3Form.get('piece_identite')?.hasError('required')">Piece Identite is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero Piece Identite</mat-label>
+            <input matInput formControlName="num_piece">
+            <mat-error *ngIf="step3Form.get('num_piece')?.hasError('required')">Numero Piece Identite is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Date de Delivrance</mat-label>
+            <input matInput type="date" formControlName="date_delivrancePiece">
+            <mat-error *ngIf="step3Form.get('date_delivrancePiece')?.hasError('required')">Date de Delivrance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Lieu de Delivrance</mat-label>
+            <input matInput formControlName="lieu_delivrancePiece">
+            <mat-error *ngIf="step3Form.get('lieu_delivrancePiece')?.hasError('required')">Lieu de Delivrance is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-success" (click)="addStep3()" mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="step4Form">
+    <form class="example-form" [formGroup]="step4Form">
+      <ng-template matStepLabel>Formations</ng-template>
+
+      <div class="row">
+        <div class="col-md-10">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom de la Formation</mat-label>
+            <input matInput formControlName="name_formation">
+            <mat-error *ngIf="step4Form.get('name_formation')?.hasError('required')">Nom de la Formation is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <input type="file" id="userFile" (change)="onSelectFile($event)" #fileInput style="display: none">
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="filename" placeholder="Fichier" readonly>
+            <mat-error *ngIf="step4Form.get('filename')?.hasError('required')">Fichier is required</mat-error>
+          </mat-form-field>
+          <button type="button" class="btn btn-primary" mat-button (click)="selectFile()">Importer une Piece Justificative</button>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-success" (click)="addStep4()" mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p *ngIf="!error" class="finish">Good. enregistrement de toutes les informations de l'engin effectuées avec succès.</p>
+    <div *ngIf="error" class="validation-text" class="text-danger">{{error}}</div>
+    <div>
+      <button class="btn btn-primary" mat-button (click)="submitChauffeur()">Terminer</button>
+    </div>
+
+  </mat-step>
+</mat-horizontal-stepper>

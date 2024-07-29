@@ -1,0 +1,364 @@
+<div class="col-md-12">
+    <div id="accordion" class="accordion mb-3">
+      <!-- Informations Generales Card -->
+      <div class="card">
+        <div id="headingOne" class="card-header">
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true"
+            aria-controls="collapseOne1" class="text-center m-0 p-0 btn btn-link btn-block">
+            <h5 class="m-0 p-0 widget-numbers text-premiery">Informations Generales</h5>
+          </button>
+        </div>
+        <div data-bs-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne" class="collapse show">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-person-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Nom :</div>
+                        <div>{{ driver.firstname }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-person-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Prenom :</div>
+                        <div>{{ driver.lastname }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-envelope-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Email :</div>
+                        <div>{{ driver.email }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-telephone-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Telephone :</div>
+                        <div>{{ driver.telephone1 }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-telephone-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Second Numero :</div>
+                        <div>{{ driver.telephone2 }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-house-door-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Adresse :</div>
+                        <div>{{ driver.adresse }}</div>
+                      </div>
+                    </div>
+                  </li>
+                 
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Lieu de Naissance :</div>
+                        <div>{{ driver.lieu_naissance }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Carte vitale :</div>
+                        <div>{{ driver.vitale }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Numéro de sécurité sociale RIB :</div>
+                        <div>{{ driver.rib }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Permit de Conduire Card -->
+      <div class="card">
+        <div id="headingTwo" class="card-header">
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo" class="text-center m-0 p-0 btn btn-link btn-block">
+            <h5 class="m-0 p-0 widget-numbers text-premiery">Permit de Conduire</h5>
+          </button>
+        </div>
+        <div data-bs-parent="#accordion" id="collapseTwo" aria-labelledby="headingTwo" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-card-text"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Numero du Permis :</div>
+                        <div>{{ driver.num_permis }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-calendar-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Date de Delivrance :</div>
+                        <div>{{ driver.date_delivrance }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Lieu de Delivrance :</div>
+                        <div>{{ driver.lieu_delivrance }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Formations Card -->
+      <div class="card">
+        <div id="headingThree" class="card-header">
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true"
+            aria-controls="collapseThree" class="text-center m-0 p-0 btn btn-link btn-block">
+            <h5 class="m-0 p-0 widget-numbers text-premiery">Formations</h5>
+          </button>
+        </div>
+        <div data-bs-parent="#accordion" id="collapseThree" aria-labelledby="headingThree" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-book-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Nom :</div>
+                        <div>{{ driver.name_formation }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Telecharger le Fichier :</div>
+                        <div>
+                          <button class="btn btn-outline-primary">Telecharger</button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Nationalite Card -->
+      <div class="card">
+        <div id="headingFour" class="card-header">
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true"
+            aria-controls="collapseFour" class="text-center m-0 p-0 btn btn-link btn-block">
+            <h5 class="m-0 p-0 widget-numbers text-premiery">Nationalite</h5>
+          </button>
+        </div>
+        <div data-bs-parent="#accordion" id="collapseFour" aria-labelledby="headingFour" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-globe"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Nationality :</div>
+                        <div>{{ driver.nationality }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-info-circle-fill"></i>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Information sur mes Documents Card -->
+      <div class="card">
+        <div id="headingFive" class="card-header">
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+            aria-controls="collapseFive" class="text-center m-0 p-0 btn btn-link btn-block">
+            <h5 class="m-0 p-0 widget-numbers text-premiery">Information sur mes Documents</h5>
+          </button>
+        </div>
+        <div data-bs-parent="#accordion" id="collapseFive" aria-labelledby="headingFive" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-file-earmark-person-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Piece Identique :</div>
+                        <div>{{ driver.piece_identite }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-card-text"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Numero de la Piece :</div>
+                        <div>{{ driver.num_piece }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-calendar-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Date :</div>
+                        <div>{{ driver.date_delivrancePiece }}</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="d-flex align-items-center">
+                      <div class="icon-wrapper border-light rounded m-0 me-3">
+                        <div class="icon-wrapper-bg bg-light"></div>
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <div>
+                        <div class="widget-heading">Lieu de l issue :</div>
+                        <div>{{ driver.lieu_delivrancePiece }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

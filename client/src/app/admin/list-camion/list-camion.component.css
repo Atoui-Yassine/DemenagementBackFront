@@ -1,0 +1,21 @@
+.accordion-button {
+    background-color: #f8f9fa;
+    color: #000;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .accordion-body {
+    padding: 1rem;
+  }
+  
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  

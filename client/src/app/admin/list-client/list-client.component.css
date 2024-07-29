@@ -1,0 +1,8 @@
+td img{
+ border-radius: 50%;
+}
+.tdd{
+    text-wrap: wrap;
+    max-width: 150px;
+    min-width: 100px;
+}

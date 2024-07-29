@@ -1,0 +1,56 @@
+/* add-camion.component.css */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-body {
+    padding: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+  }
+  
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+  }
+  
+  .btn-close:focus {
+    outline: none;
+  }
+  
+  .btn-secondary,
+  .btn-success {
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .needs-validation .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='0 0 12 16'%3e%3cpath fill-rule='evenodd' d='M9.05 3.05a.5.5 0 0 0-.7 0L6 5.29 3.65 3.05a.5.5 0 1 0-.7.7L5.29 6 3.05 8.35a.5.5 0 1 0 .7.7L6 6.71l2.35 2.34a.5.5 0 1 0 .7-.7L6.71 6l2.34-2.35a.5.5 0 0 0 0-.7z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(1.5em + 0.75rem) calc(1.5em + 0.75rem);
+  }
+  
+  .img-thumbnail {
+    max-width: 50%;
+    height: 50px;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  

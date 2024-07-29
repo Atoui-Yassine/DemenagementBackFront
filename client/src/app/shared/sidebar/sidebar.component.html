@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="sidenav">
+      <mat-nav-list>
+        <ng-container *ngFor="let item of menuItems">
+          <mat-list-item *ngIf="!item.submenu" class="menu-item">
+            <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+            <a mat-line [routerLink]="item.link">{{ item.label }}</a>
+          </mat-list-item>
+  
+          <mat-expansion-panel *ngIf="item.submenu" class="menu-item">
+            <mat-expansion-panel-header>
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </mat-expansion-panel-header>
+            <mat-action-list>
+              <a mat-list-item *ngFor="let subItem of item.submenu" [routerLink]="subItem.link" class="subItemClass">
+              <mat-icon>{{ subItem.icon }}</mat-icon>
+                {{ subItem.label }}
+              </a>
+            </mat-action-list>
+          </mat-expansion-panel>
+        </ng-container>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
